@@ -1,0 +1,15 @@
+SELECT
+{
+    [Measures].[AveragePM25],
+    [Measures].[AveragePM10],
+    [Measures].[AverageCO],
+    [Measures].[AverageO3],
+    [Measures].[AverageNO2],
+    [Measures].[AverageSO2]
+} ON COLUMNS,
+
+NON EMPTY
+    [DIM LOCATION].[Hierarchy].[Continent].MEMBERS
+ON ROWS
+
+FROM [Data Warehouse Weather];
